@@ -31,6 +31,13 @@ void __ComLog(int level, const char* tag, const char* func, int line, const char
 }
 #endif
 
+#else
+#include <stdio.h>
+#define   LOGV(TAG, FMT, ARGS...)   printf("[" TAG "]" FMT "\n", ##ARGS )
+#define   LOGD(TAG, FMT, ARGS...)   printf("[" TAG "]" FMT "\n", ##ARGS )
+#define   LOGI(TAG, FMT, ARGS...)   printf("[" TAG "]" FMT "\n", ##ARGS )
+#define   LOGW(TAG, FMT, ARGS...)   printf("[" TAG "]" FMT "\n", ##ARGS )
+#define   LOGE(TAG, FMT, ARGS...)   printf("[" TAG "]" FMT "\n", ##ARGS )
 #endif // ENABLE_SPDLOG
 
 #endif //SPDLOGHELPER_ALOGL_H
